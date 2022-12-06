@@ -107,7 +107,6 @@ reader.on("line", (row) => {
 });
 
 reader.on("close", () => {
-  let isPlaying = true;
   let songTitle;
   const trie = new Trie();
   const map = new Map();
@@ -123,7 +122,7 @@ reader.on("close", () => {
   process.stdout.write("Song Title is: ");
 
   rl.on("line", (line) => {
-    songTitle = line;
+    songTitle = line.toLowerCase();
     rl.close();
   });
 
